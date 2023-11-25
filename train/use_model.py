@@ -3,17 +3,16 @@ import os
 import pandas as pd
 
 
-separador = os.path.sep
-dir_actual = os.path.dirname(os.path.abspath(__file__))
-dir_tec = separador.join(dir_actual.split(separador)[:-1])
+#separador = os.path.sep
+#dir_actual = os.path.dirname(os.path.abspath(__file__))
+#dir_tec = separador.join(dir_actual.split(separador)[:-1])
 
 
-dir_model = dir_tec+'/models/'
-print(dir_model)
-
+#dir_model = dir_tec+'/models/'
 # Load the model from the .sav file
-model = joblib.load(dir_model+'model.sav')
+#model = joblib.load(dir_model+'model.sav')
 
+"""
 data = { 
     "pclass": 1,
     "name" : "Newell, Mr. Arthur Webster",
@@ -28,10 +27,23 @@ data = {
     "boat": "?",
     "body": 122 
 }
+"""
 
-
-data = pd.DataFrame([data])
-print(data)
+#data = pd.DataFrame([data])
 # Now you can use the loaded model for predictions
-predictions = model.predict(data)
-print(predictions)
+#predictions = model.predict(data)
+#print(predictions)
+
+def prediccion(data:dict):
+    data = pd.DataFrame([data])
+    
+    separador = os.path.sep
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    dir_tec = separador.join(dir_actual.split(separador)[:-1])
+
+
+    dir_model = dir_tec+'/models/'
+    # Load the model from the .sav file
+    model = joblib.load(dir_model+'model.sav')
+    predictions = model.predict(data)
+    return(predictions)
