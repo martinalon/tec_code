@@ -74,6 +74,7 @@ def train(model_name: str):
         random_state=config.SEED_SPLIT,
     )
     titanic_pipeline.fit(X_train, y_train)
+    print(X_test.head())
     preds = titanic_pipeline.predict(X_test)
     accuracy = (preds == y_test).sum() / len(y_test)
     print(f"Accuracy of the model is {accuracy}")
