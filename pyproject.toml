@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "tec-code-fast-api"
+version = "0.1.0"
+description = "actividad de equipo 2"
+authors = ["martinalon <martinalonsofloresgonzalez@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.2"
+pandas = "^2.1.3"
+scikit-learn = "^1.3.2"
+pytest = "^7.4.3"
+fastapi = "^0.104.1"
+joblib = "^1.3.2"
+pydantic = "^2.5.2"
+uvicorn = "^0.24.0.post1"
+transformers = {url = "https://github.com/abajorat/transformers/archive/refs/tags/v0.1.0.zip"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
