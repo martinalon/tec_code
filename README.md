@@ -43,8 +43,8 @@
 3. mejorar los hiperáparametros al agregar un pipeline donde se utilice validación cruzada y una malla para los parémetros (en el caso de Random Forest).
 4. Utilizar pycodestyle, black, flake8 y pylint para darle formato al código
 5. crear diferentes clases para cada uno de los procesos en el codigo, es decir, separar la funcion train del archivo train_model.py en las siguientes clases:
-	5.1. Importacion de datos: Una clase que importe los datos de una base con formato csv, xml,  etc.
-	5.2. Hacer una clase par limpiar los datos.
-	5.3. Crear una clase para el preprocesamiento (transformación de carácteristicas).
-	5.4. Relizar una clase para entrenamiento, validación y exportación del modelo.
-	5.5. Crear una clase que importe el modelo creado y prediga nuevos datos.
+    - Importacion de datos: Una clase que importe los datos de una base con formato csv, xml,  etc.
+    - Hacer una clase par limpiar los datos.
+	- Crear una clase para el preprocesamiento (transformación de carácteristicas).
+	- Relizar una clase para entrenamiento, validación y exportación del modelo.
+	- Crear una clase que importe el modelo creado y prediga nuevos datos.
