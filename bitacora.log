@@ -1,0 +1,2 @@
+2023-11-27 20:35:16,468 - ERROR -  error in name 'LogisticRegression' is not defined
+2023-11-27 20:38:39,153 - ERROR -  error in unhashable type: 'dict'

@@ -30,11 +30,13 @@ class PassengerData(BaseModel):
 async def predict_survival(passenger_data: PassengerData):
     try:
         print(passenger_data.model_dump())
-        my_model = prediccion(passenger_data.model_dump())
-        print(my_model)
+        my_model, name = prediccion(passenger_data.model_dump())
         # Here you can perform any processing or prediction with the received data
         # For now, let's just return the received data as a response
-        return {"Received Data": str(my_model[0])}
+        result_dict = {
+            "Received Data": int(my_model[0]),
+            "Model Name":name }
+        return(result_dict)
     
     except Exception as e:
         logging.error(f" error in {e}")

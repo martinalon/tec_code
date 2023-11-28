@@ -45,5 +45,11 @@ def prediccion(data:dict):
     dir_model = dir_tec+'/models/'
     # Load the model from the .sav file
     model = joblib.load(dir_model+'model.sav')
+    model_string_name = str(model)
+    if "LogisticRegression" in model_string_name:
+        name = "LogisticRegression"
+    else:
+        name = "RandomForest"
+
     predictions = model.predict(data)
-    return(predictions)
+    return(predictions, name)
