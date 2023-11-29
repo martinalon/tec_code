@@ -2,7 +2,7 @@
 
 import logging
 import httpx
-from train.use_model import prediccion
+#from train.use_model import prediccion
 
 logging.basicConfig(filename='bitacora.log', level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s')
