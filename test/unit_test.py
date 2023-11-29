@@ -1,18 +1,16 @@
 # test_app.py
 
-from fastapi.testclient import TestClient
-from fastapi import HTTPException
-from train.use_model import prediccion
-from main import app  # assuming your FastAPI app is defined in a file named 'main'
 import logging
+import httpx
+from train.use_model import prediccion
 
 logging.basicConfig(filename='bitacora.log', level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-client = TestClient(app)
-
-
 def test_predict_survival():
+    # Start the FastAPI application (you may want to move this to a fixture)
+    url = "http://127.0.0.1:8000/predict_survival"
+
     # Test valid input
     valid_payload = {
         "pclass": 1,
@@ -29,7 +27,7 @@ def test_predict_survival():
         "body": 0
     }
 
-    response = client.post("/predict_survival", json=valid_payload)
+    response = httpx.post(url, json=valid_payload)
     assert response.status_code == 200
     assert "Received Data" in response.json()
     assert "Model Name" in response.json()
@@ -50,13 +48,13 @@ def test_predict_survival():
         # "body": 0  # Uncommenting this line will make the payload invalid
     }
 
-    response = client.post("/predict_survival", json=invalid_payload)
+    response = httpx.post(url, json=invalid_payload)
     assert response.status_code == 422  # 422 Unprocessable Entity (validation error)
 
     # Test exception handling
     # You might want to adjust this based on the specific exceptions raised in your code
-    response = client.post("/predict_survival", json={})
+    response = httpx.post(url, json={})
     assert response.status_code == 500  # 500 Internal Server Error
     assert "error" in response.text.lower()
 
-
+# To run the test, execute `pytest test_app.py` in the terminal.
