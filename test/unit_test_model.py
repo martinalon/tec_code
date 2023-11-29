@@ -3,6 +3,12 @@ import os
 import joblib
 import pytest
 from train.use_model import prediccion  # Replace 'your_module_name' with the actual module name
+import logging
+
+logging.basicConfig(filename='bitacora.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+
 @pytest.fixture
 def sample_data():
     return {
@@ -19,9 +25,9 @@ def sample_data():
         "boat": "?",
         "body": 122
     }
+
 def test_prediccion_with_valid_data(sample_data):
     predictions, model_name = prediccion(sample_data)
-    assert isinstance(predictions, list)
     assert len(predictions) == 1
     assert predictions[0] in [0, 1]  # Assuming the model predicts 0 or 1 for binary classification
     assert model_name in ["LogisticRegression", "RandomForest"]
