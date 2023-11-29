@@ -3,10 +3,8 @@ import os
 import joblib
 import pytest
 from train.use_model import prediccion  # Replace 'your_module_name' with the actual module name
-import logging
 
-logging.basicConfig(filename='bitacora.log', level=logging.DEBUG,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 
 @pytest.fixture
